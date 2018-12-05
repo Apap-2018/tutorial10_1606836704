@@ -41,7 +41,7 @@ export class AddLabResult extends React.Component {
 		 const dataJson = {}
 
 		 data.forEach((val,key) => {
-			if (val != "") {
+			if (val !== "") {
 				let name = key.split('.');
 				if (name.length > 1) {
 					let last = name.pop()

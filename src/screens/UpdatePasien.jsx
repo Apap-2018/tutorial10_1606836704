@@ -47,18 +47,22 @@ export class UpdatePasien extends React.Component {
 		 data.forEach((val, key) => {
 			 if (val !== ""){
 				 let name = key.split('.');
-				 if (name.length > 1) {
+				 if (name.length > 1) {	
 					 let last = name.pop()
 					 name.reduce((prev, next) => {
 						 return prev[next] = prev[next] || {};
 					 }, dataJson)[last] = val
 				 }else{
-					 dataJson[key] = val
+					 dataJson[key] = val;
 				 }
 			 }
 		 })
 
+		 console.log(dataJson);
+		 alert(dataJson)
+
 		 Appointment.updateStatusPasien(dataJson).then(response => {
+			 alert(response)
 			 if(response.status === 200){
 				 this.setState({
 					 loading: false,
